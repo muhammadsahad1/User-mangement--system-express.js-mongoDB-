@@ -10,7 +10,7 @@
 
 
   const auth = require('../middleware/auth')
-  
+  const middle = require('../middleware/adminAuth')
   user_route.set('view engine', 'ejs');
   user_route.set('views', './views/users')
   
@@ -22,8 +22,8 @@
   user_route.post('/register', userController.insertUser);
 
 
-  user_route.get('/',auth.islogout,  userController.loginLoad);
-  user_route.get('/login', auth.islogout, userController.loginLoad);
+  user_route.get('/',middle.isLogout, auth.islogout,  userController.loginLoad);
+  user_route.get('/login',auth.islogout, userController.loginLoad);
 
   user_route.post('/login', userController.loginVerify);
 

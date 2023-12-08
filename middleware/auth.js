@@ -42,4 +42,5 @@ module.exports = {
 
   islogin,
   islogout
+  
 }
